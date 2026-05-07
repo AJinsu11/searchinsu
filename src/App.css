@@ -1,0 +1,166 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+/* =========================
+   기본 애니메이션
+========================= */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 떠다니기 */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 말풍선 등장 */
+@keyframes bubbleFade {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0px); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* =========================
+   캐릭터 영역 (PC 기준)
+========================= */
+
+.characterWrap {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 9999;
+}
+
+/* 캐릭터 이미지 */
+.character {
+  width: 400px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 말풍선 */
+.speechBubble {
+  position: absolute;
+  bottom: 100%;
+  left: 20%;
+  transform: translateY(-10px);
+
+  width: 260px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  font-size: 16px;
+  color: #333;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  animation: bubbleFade 3s ease-in-out infinite;
+
+  white-space: normal;
+}
+
+/* 말풍선 꼬리 */
+.speech-tail {
+  position: absolute;
+  bottom: -6px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+/* =========================
+   📱 모바일 반응형
+========================= */
+
+@media (max-width: 768px) {
+
+  .characterWrap {
+    bottom: 10px;
+    left: 10px;
+    gap: 6px;
+  }
+
+  .character {
+    width: 180px;
+  }
+
+  .speechBubble {
+    width: 160px;
+    font-size: 12px;
+    padding: 8px 10px;
+    left: 10%;
+  }
+}
+
+/* =========================
+   📱 초소형 (아이폰 SE급)
+========================= */
+
+@media (max-width: 380px) {
+
+  .character {
+    width: 140px;
+  }
+
+  .speechBubble {
+    width: 140px;
+    font-size: 11px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.companyInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
